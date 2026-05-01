@@ -1,4 +1,4 @@
-
+import chalk from 'chalk';
 let word = ""
 
 async function fetchWord(){
@@ -17,22 +17,23 @@ async function fetchWord(){
 
 function play(word){
 
-    let list_gusses = {}
+    let list_gusses = []
     let example = ["a","e","i","o","u"]
     let attempts = 6
 
-
     for(let i = 0; i<example.length;i++){
         if (example[i] === word[i]){
-            console.log(example[i])
-            console.log(word[i])
-            list_gusses.assign({letter: example[i],index:i, colour:"green"})
+            console.log(chalk.green(example[i]))
+        } else if (word.includes(example[i])){
+            console.log(chalk.yellow(example[i]))
+        } else{
+            console.log(chalk.white(example[i]))
         }
     }
 
     attempts-=1
+    return list_gusses
 
-    return 0
 }
 
 fetchWord()
