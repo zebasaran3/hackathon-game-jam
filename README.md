@@ -1,5 +1,6 @@
 # Wordle CLI 
 A command-line word guessing game where a random 5-letter word is generated. The player has six attempts to guess the word correctly. After each guess, feedback is given to indicate which letters are correct, partially correct or incorrect.
+
 ![alt text](./assets/result.png)
 
 ---
