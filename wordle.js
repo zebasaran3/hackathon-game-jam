@@ -17,23 +17,21 @@ async function fetchWord(){
 
 function play(word){
 
-    let list_gusses = []
     let example = ["a","e","i","o","u"]
     let attempts = 6
+    let output = []
 
     for(let i = 0; i<example.length;i++){
         if (example[i] === word[i]){
-            console.log(chalk.green(example[i]))
+            output.push(chalk.green(example[i] + " "))
         } else if (word.includes(example[i])){
-            console.log(chalk.yellow(example[i]))
+            output.push(chalk.yellow(example[i] + " "))
         } else{
-            console.log(chalk.white(example[i]))
+            output.push(chalk.white(example[i] + " "))
         }
     }
-
+    console.log(output.join(" | "))
     attempts-=1
-    return list_gusses
-
 }
 
 fetchWord()
