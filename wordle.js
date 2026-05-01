@@ -22,7 +22,7 @@ function play(word){
     let attempts = 1
     console.log("How to play Wordle:")
     console.log(" - You'll have 6 attempts to guess the word")
-    console.log(" - Guesses must be 5 letter long")
+    console.log(" - Guesses must be 5 letters long")
     console.log()
 
     while (attempts<=6){
