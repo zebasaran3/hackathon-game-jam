@@ -1,4 +1,5 @@
-import chalk from 'chalk';
+const input = require(`readline-sync`)
+const chalk = require("chalk");
 let word = ""
 
 async function fetchWord(){
@@ -17,20 +18,22 @@ async function fetchWord(){
 
 function play(word){
 
-    let example = ["a","e","i","o","u"]
     let attempts = 6
     let output = []
 
-    for(let i = 0; i<example.length;i++){
-        if (example[i] === word[i]){
-            output.push(chalk.green(example[i] + " "))
-        } else if (word.includes(example[i])){
-            output.push(chalk.yellow(example[i] + " "))
+    let guess =input.question(``)
+    process.stdout.moveCursor(0, -1)
+
+    for(let i = 0; i<guess.length;i++){
+        if (guess[i] === word[i]){
+            output.push(chalk.green(guess[i] + " "))
+        } else if (word.includes(guess[i])){
+            output.push(chalk.yellow(guess[i] + " "))
         } else{
-            output.push(chalk.white(example[i] + " "))
+            output.push(chalk.white(guess[i] + " "))
         }
     }
-    console.log(output.join(" | "))
+    console.log(`| ${output.join(" | ")}|`)
     attempts-=1
 }
 
