@@ -28,9 +28,10 @@ function play(word){
     while (attempts<=6){
         let output = []
         let guess =input.question(``)
+        guess = guess.toLowerCase()
         process.stdout.moveCursor(0, -1)
 
-        if (guess.length === 5){
+        if (/^[a-zA-Z]{5}$/.test(guess)){ 
             for(let i = 0; i<guess.length;i++){
                 if (guess[i] === word[i]){
                     output.push(chalk.green(guess[i] + " "))
@@ -49,6 +50,9 @@ function play(word){
             console.log(`| ${output.join(" | ")}| - ${attemptsLeft} attempts left`)
                 attempts += 1
         }
+            else{
+                console.log("Invalid input. Please enter a 5-letter word using only letters.")
+            }
     }
     console.log(`The word was ${word.join("")}!, Better luck next time!`)
     return
